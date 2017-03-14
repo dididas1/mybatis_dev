@@ -1,73 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.digt.mybatis_dev.dao.StudentMapper">
-		
-		<sql id="selectSql">
-			 select stud_id,name,email,phone ,dob from students;
-		</sql>
-		<sql id="whereSql">
-			<where>
-				<if test="studId != null">
-					stud_id = #{studId};
-				</if>
-			</where>
-		</sql>
-		<sql id="updateSql">
-				update students set name=#{name},email=#{email},phone=#{phone},dob=#{dob} 
-				where stud_id = #{studId};
-		</sql>
-		<sql id="insertSql">
-			insert into students(stud_id,name,email,dob,phone) values(#{studId},#{name},#{email},#{dob},#{phone});
-		</sql>
-		<sql id="deleteSql">
-			delete from students where stud_id=#{studId};
-		</sql>
-		
-		<select id="selectStudentByNo" parameterType="Student" resultType="Student">
-		 	<!--  select stud_id,name,email,phone ,dob from students 
-		 	 where stud_id = #{studId}; -->
-		 	 <include refid="selectSql"/>
-		 	 <include refid="whereSql"/>
-		</select>
-		
-		<select id="selectOne" parameterType="Student" resultType="Student">
-			 <include refid="selectSql"/>
-		 	 <include refid="whereSql"/>
-		</select>
-		
-		
-		<select id="selecStudentByAll" resultType="Student">
-			 select stud_id,name,email,phone ,dob from students;
-		</select>
-		
-		<select id="selectAll" resultType="Student">
-			<include refid="selectSql"/>
-		</select>
-		
-		<update id="updateStudent" parameterType="Student">
-			update students set name=#{name},email=#{email},phone=#{phone},dob=#{dob}W where stud_id = #{studId};	
-		</update>
-		
-		<update id="updateitem" parameterType="Student">
-			<include refid="updateSql"/>
-		</update>
-		
-		<insert id="insertitem">
-			<include refid="insertSql"/>
-		</insert>
-		
-		<insert id="insertStudent">
-			insert into students(stud_id,name,email,dob,phone) values(#{studId},#{name},#{email},#{dob},#{phone});
-		</insert>
-		
-		<delete id="deleteStudent" parameterType="Student">
-			delete from students where stud_id=#{studId};
-		</delete>
-		
-		<delete id="deleteitem">
-			<include refid="deleteSql"/>
-		</delete>
-		
-		
-		
+
+	<sql id="selectSql">
+		select stud_id,name,email,phone ,dob from students
+	</sql>
+	<sql id="whereSql">
+		<where>
+			<if test="studId != null">
+				stud_id = #{studId};
+			</if>
+		</where>
+	</sql>
+	
+	<resultMap type="Student" id="StudentResult">
+		<id property="studId" column="stud_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+	</resultMap>
+	<select id="selectStudentByNoForResultMap" parameterType="Student" resultMap="StudentResult">
+		<include refid="selectSql"/>
+		<include refid="whereSql"/>
+	</select>
+	<select id="selectStudentByAllForResultMap" resultMap="StudentResult">
+		<include refid="selectSql"/>
+	</select>
+
+
+
 </mapper>
