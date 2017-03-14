@@ -17,6 +17,7 @@ import kr.or.dgit.mybatis_dev.services.StudentService;
 
 @FixMethodOrder (MethodSorters.NAME_ASCENDING)
 public class StudentServiceTest {
+	private static final int Vector = 0;
 	private static StudentService service;
 
 	@BeforeClass
