@@ -63,4 +63,29 @@ public class StudentService{
 		}
 	}
 	
+	public int updateStudent(Student studnet){
+		int res=-1;
+		log.debug("selectStudentByNoAssociationAddress()");
+		try(SqlSession sqlsession = MybatisSqlSessionFactory.opensesstion();){
+			 sqlsession.selectOne(namespace + ".updateStudent", studnet);
+		}
+		return res;
+	}
+	public int deleStudnet(Student studnet){
+		int res=-1;
+		log.debug("selectStudentByNoAssociationAddress()");
+		try(SqlSession sqlsession = MybatisSqlSessionFactory.opensesstion();){
+			 sqlsession.selectOne(namespace + ".deleStudnet", studnet);
+		}
+		return res;
+	}
+	public int insertStudent(Student studnet){
+		int res=-1;
+		log.debug("insertStudent()");
+		try(SqlSession sqlsession = MybatisSqlSessionFactory.opensesstion();){
+			 res=sqlsession.insert(namespace + ".insertStudent", studnet);
+			 sqlsession.commit();
+		}
+		return res;
+	}
 }

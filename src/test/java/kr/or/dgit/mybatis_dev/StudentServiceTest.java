@@ -1,6 +1,7 @@
 package kr.or.dgit.mybatis_dev;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,6 +13,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
 
@@ -33,7 +35,7 @@ public class StudentServiceTest {
 		service = null;
 	}
 	
-	@Test
+	/*@Test
 	public void atestselectStudentByNoForResultMap(){
 		Student std= new Student();
 		std.setStudId(2);
@@ -83,5 +85,17 @@ public class StudentServiceTest {
 		std.setStudId(1);
 		Student selectstd = service.selectStudentByNoAssociationAddress(std);
 		Assert.assertNotNull(selectstd);
+	}*/
+	@Test
+	public void updateStudent(){
+		int res = service.insertStudent(new Student(4,"이승우", "dd@dd.com", new Date(), new PhoneNumber("010-0000-0000")));
+	/*	std.setStudId(1);
+		std.setName("이승우1");
+		service.updateStudent(std);
+		std.setStudId(1);
+		service.deleStudnet(std);*/
+		
+		
+		
 	}
 }

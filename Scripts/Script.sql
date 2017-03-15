@@ -94,6 +94,7 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  
  select * from students;
  
+ select * from courses;
  
  select stud_id,name,email,phone ,dob , a.ADDR_ID, street , city, state, zip, country
  from students s left join addresses a on s.ADDR_ID= a.ADDR_ID
@@ -102,3 +103,24 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select t.TUTOR_ID,t.NAME as TUTOR_name,EMAIL,c.COURSE_ID , c.NAME, DESCRIPTION ,start_date,end_date
  from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID
  where t.TUTOR_ID =1;
+ 
+ select *
+ from courses
+ where TUTOR_ID = 1 
+ and name like '%java%' 
+ and START_DATE >= '2013-03-01'
+ and END_DATE <='2013-09-01';
+
+ 
+ select * from courses where TUTOR_ID = 1 and name like '%java%'  and START_DATE >= '2013-03-01' and END_DATE <= '2013-09-01';
+ 
+ select *
+ from courses
+ where TUTOR_ID in(1,2);
+ 
+ select * from course_enrollment;
+ DELETE FROM  STUDENTS  WHERE STUD_ID=13;
+ 
+ select * from students;
+ UPDATE students    SET name='이승우'    WHERE STUD_ID=1;
+ 
