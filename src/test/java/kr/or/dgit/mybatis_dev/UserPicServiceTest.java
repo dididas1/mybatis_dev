@@ -57,7 +57,7 @@ public class UserPicServiceTest {
 	@Test
 	public void btestFindUserPic(){
 		
-		
+		ㅁㄴㄹㄴㅁ
 		
 	}
 }
