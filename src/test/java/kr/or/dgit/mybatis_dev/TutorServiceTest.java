@@ -40,7 +40,7 @@ public class TutorServiceTest {
 		}
 	}
 */
-	@Test
+/*	@Test
 	public void testInserTutor(){
 		Tutor tutor = new Tutor();
 		tutor.setTutorId(6);
@@ -51,5 +51,5 @@ public class TutorServiceTest {
 		tutorservice.insertTutor(tutor);
 		
 		
-	}
+	}*/
 }
