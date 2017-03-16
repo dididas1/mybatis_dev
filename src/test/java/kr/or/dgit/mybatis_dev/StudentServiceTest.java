@@ -13,6 +13,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import kr.or.dgit.mybatis_dev.dto.Gender;
 import kr.or.dgit.mybatis_dev.dto.PhoneNumber;
 import kr.or.dgit.mybatis_dev.dto.Student;
 import kr.or.dgit.mybatis_dev.services.StudentService;
@@ -88,7 +89,14 @@ public class StudentServiceTest {
 	}*/
 	@Test
 	public void updateStudent(){
-		int res = service.insertStudent(new Student(4,"이승우", "dd@dd.com", new Date(), new PhoneNumber("010-0000-0000")));
+		Student std = new Student();
+		std.setStudId(3);
+		std.setName("이승우");
+		std.setEmail("1@2.com");
+		std.setPhone(new PhoneNumber("010-000-0000") );
+		std.setDob(new Date());
+		std.setGender(Gender.FMALE);
+		int res = service.insertStudent(std);
 	/*	std.setStudId(1);
 		std.setName("이승우1");
 		service.updateStudent(std);

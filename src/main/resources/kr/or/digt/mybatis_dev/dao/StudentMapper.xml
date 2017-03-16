@@ -87,7 +87,7 @@
 		</where>
 	</delete>
 	<insert id="insertStudent" parameterType="Student" >
-		insert into Students(stud_id,name,email,phone,dob)
+		insert into Students(stud_id,name,email,phone,dob,gender)
 		<trim prefix="values(" suffix=")" suffixOverrides=",">
 			<if test="studId !=null">
 				#{studId},
@@ -103,6 +103,9 @@
 			</if>
 			<if test="dob !=null">
 				#{dob},
+			</if>
+			<if test="gender !=null">
+				#{gender},
 			</if>
 		</trim>
 	</insert>

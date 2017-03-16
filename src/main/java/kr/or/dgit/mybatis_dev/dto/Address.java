@@ -45,6 +45,15 @@ public class Address {
 	}
 	
 	
+	public Address(int addrId, String street, String city, String state, String zip, String country) {
+		super();
+		this.addrId = addrId;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.country = country;
+	}
 	@Override
 	public String toString() {
 		return String.format("%s, %s, %s, %s, %s, %s]", addrId, street,

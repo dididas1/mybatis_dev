@@ -1,5 +1,6 @@
 package kr.or.dgit.mybatis_dev.dto;
 
+import java.util.Date;
 import java.util.List;
 
 public class Tutor {
@@ -7,7 +8,24 @@ public class Tutor {
 	private String name;
 	private String email;
 	private Address address;
+	private Date dob;
+	private PhoneNumber phone;
+	private Gender gender;
 	private List<Course> courses;
+	
+	
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+	public Date getDob() {
+		return dob;
+	}
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
 	public int getTutorId() {
 		return tutorId;
 	}
@@ -38,11 +56,21 @@ public class Tutor {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
+	
+	
+	public Gender getGender() {
+		return gender;
+	}
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
 	@Override
 	public String toString() {
-		return String.format("%s, %s,%s,%s,%s", tutorId, name, email,
-				address, courses);
+		return String.format(
+				"Tutor [tutorId=%s, name=%s, email=%s, address=%s, dob=%s, phone=%s, gender=%s, courses=%s]", tutorId,
+				name, email, address, dob, phone, gender, courses);
 	}
+
 	
 	
 }

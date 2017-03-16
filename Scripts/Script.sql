@@ -18,7 +18,8 @@ CREATE TABLE STUDENTS (
   BIO LONGTEXT DEFAULT NULL,
   PIC BLOB DEFAULT NULL,
   ADDR_ID INT(11) DEFAULT NULL,  
-  PRIMARY KEY (STUD_ID),
+  gender varchar(10) NULL ,
+ PRIMARY KEY (STUD_ID),
   CONSTRAINT FK_STUDENTS_ADDR FOREIGN KEY (ADDR_ID)  REFERENCES ADDRESSES (ADDR_ID)
 );
 
@@ -32,6 +33,7 @@ CREATE TABLE TUTORS (
   BIO LONGTEXT DEFAULT NULL,
   PIC BLOB DEFAULT NULL,
   ADDR_ID INT(11) DEFAULT NULL,
+  ALTER TABLE mybatis_dev.tutors ADD gender varchar(10) NULL ,
   PRIMARY KEY (TUTOR_ID),
   CONSTRAINT FK_TUTORS_ADDR FOREIGN KEY (ADDR_ID)   REFERENCES ADDRESSES (ADDR_ID)  
 );
@@ -56,6 +58,13 @@ CREATE TABLE COURSE_ENROLLMENT(
   CONSTRAINT FK_ENROLLMENT_COURSE   FOREIGN KEY (COURSE_ID) REFERENCES COURSES (COURSE_ID)
 );
 
+create table user_pic(
+	id int(11) not null auto_increment,
+	name varchar(50) default null,
+	pic blob,
+	bio longtext,
+	primary key(id)
+);
 
 
 INSERT INTO ADDRESSES (ADDR_ID,STREET,CITY,STATE,ZIP,COUNTRY) VALUES 
@@ -124,3 +133,12 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  select * from students;
  UPDATE students    SET name='이승우'    WHERE STUD_ID=1;
  
+insert into Students(stud_id,name,email,phone,dob,gender)  values( 3,'이승우','ee@naver.com', now(),f );
+
+select * from tutors;
+INSERT INTO TUTORS (TUTOR_ID,NAME,EMAIL,PHONE,gender)  VALUES (5,'이승우2','ee@naver.com','010-111-1111','male');
+
+
+
+
+select * from user_pic;

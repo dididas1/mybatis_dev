@@ -5,6 +5,7 @@
 		<id property="tutorId" column="TUTOR_ID"/>
 		<result property="name" column="name"/>
 		<result property="email" column="email"/>
+		<result property="gender" column="gender"/>
 		<collection property="courses" resultMap="kr.or.digt.mybatis_dev.dao.CourseMapper.CourseResult"/>
 	</resultMap>
 		<select id="findTutorById" parameterType="int" resultMap="tutorresult">
@@ -12,4 +13,8 @@
  			from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID
 			where t.TUTOR_ID =#{tutorId};
 		</select>
+		
+		<insert id="insertTutor" parameterType="Tutor" >
+			INSERT INTO TUTORS (TUTOR_ID,NAME,EMAIL,PHONE,Gender)  VALUES (#{tutorId},#{name},#{email},#{phone},#{gender})
+		</insert>
 </mapper>
