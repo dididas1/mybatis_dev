@@ -12,4 +12,5 @@ public interface CourseMapper {
 	List<Course> searchTrim(Map<String, Object> param);
 	List<Course> searchForeach(Map<String, Object> param);
 	
+	
 }

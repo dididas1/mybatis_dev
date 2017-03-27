@@ -35,5 +35,6 @@ public class phoneTypeHandler extends BaseTypeHandler<PhoneNumber> {
 	public PhoneNumber getNullableResult(CallableStatement cs, int columnIndex) throws SQLException {
 		return new PhoneNumber(cs.getNString(columnIndex));
 	}
-
+	
+	
 }

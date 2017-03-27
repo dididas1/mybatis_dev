@@ -140,5 +140,9 @@ INSERT INTO TUTORS (TUTOR_ID,NAME,EMAIL,PHONE,gender)  VALUES (5,'이승우2','e
 
 
 
-
+select * from addresses;
 select * from user_pic;
+
+SELECT ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY FROM addresses where STATE='ca' and zip='92110';
+
+SELECT ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY FROM addresses  where STATE='ca'and zip='92110';

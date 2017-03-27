@@ -91,7 +91,7 @@ public class CourseServiceTest {
 		param.put("tutorId", 1);
 		searchCourse = courseservice.searchTrim(param);
 	}*/
-	@Test
+	/*@Test
 	public void testsearchForeach(){
 		List<Integer> tutorIds= new ArrayList<Integer>();
 		tutorIds.add(1);
@@ -102,5 +102,5 @@ public class CourseServiceTest {
 		param.put("tutorIds", tutorIds);
 		
 		List<Course> searchCourse = courseservice.searchForeach(param);
-	}
+	}*/
 }

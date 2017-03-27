@@ -7,6 +7,10 @@ public class Address {
 	private String state;
 	private String zip;
 	private String country;
+	
+	public Address() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getAddrId() {
 		return addrId;
 	}

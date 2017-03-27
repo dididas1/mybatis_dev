@@ -14,4 +14,6 @@ public interface StudentMapper {
 	
 	Student selectStudentByNoWithAddress(Student studnet);
 	Student selectStudentByNoAssociationAddress(Student studnet);
+	
+	
 }

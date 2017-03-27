@@ -56,7 +56,7 @@ public class UserPicServiceTest {
 		Assert.assertEquals(1, res);
 		
 	}*/
-	@Test
+	/*@Test
 	public void btestFindUserPic(){
 		UserPic userpic = userPicService.selectUserPicById(1);
 		byte[] pic= userpic.getPic();
@@ -73,5 +73,5 @@ public class UserPicServiceTest {
 		}
 		
 		Assert.assertNotNull(userpic);
-	}
+	}*/
 }

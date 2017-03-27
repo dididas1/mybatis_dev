@@ -10,6 +10,27 @@
 		<result property="zip" column="zip"/>
 		<result property="country" column="country"/>
 	</resultMap>
+	<sql id="selectSql">
+		SELECT ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY FROM addresses
+		
+	</sql>
+	<sql id="whereSql">
+		where STATE=#{state} and zip=#{zip}
+	</sql>
+	SELECT ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY FROM addresses where STATE=? and zip=? 
+	<select id="selectAddressByAddrIdAndState" resultMap="AddressResult">
+		<include refid="selectSql"/>
+		where STATE=#{param1} and zip=#{param2}
+	</select>
+	
+	<select id="selectAddressByAddrIdAndStateForMap" parameterType="map" resultMap="AddressResult">
+		<include refid="selectSql"/>
+		<include refid="whereSql"/>
+	</select>
+	
+	<select id="selectAddressByAddresLimit" resultMap="AddressResult"  >
+		<include refid="selectSql"></include>
+	</select>
 </mapper>
 
 
